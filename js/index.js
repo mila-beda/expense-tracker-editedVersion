@@ -123,11 +123,12 @@ function updateValues() {
 
   let nowTotal = `$${total}`;
 
-  balance.innerText = nowTotal.includes("-")
-    ? (balance.innerText = nowTotal + " You should earn more!")
-    : nowTotal.includes("0.00")
-    ? (balance.innerText = nowTotal)
-    : (balance.innerText = nowTotal + " You're good at money earning!");
+  balance.innerText =
+    total < 0
+      ? (balance.innerText = nowTotal + " You should earn more!")
+      : total > 0
+      ? (balance.innerText = nowTotal + " You're good at money earning!")
+      : (balance.innerText = nowTotal);
 
   money_plus.innerText = `$${income}`;
   money_minus.innerText = `$${expense}`;
